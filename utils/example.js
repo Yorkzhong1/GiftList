@@ -5,9 +5,10 @@ const verifyProof = require('./verifyProof');
 // create the merkle tree for the whole nice list
 const merkleTree = new MerkleTree(niceList);
 
+
 // get the root
 const root = merkleTree.getRoot();
-
+console.log(root)
 // find the proof that norman block is in the list 
 const name = 'Norman Block';
 const index = niceList.findIndex(n => n === name);
