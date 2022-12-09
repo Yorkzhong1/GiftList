@@ -16,14 +16,14 @@ app.post('/gift', (req, res) => {
   const {name,proof,message} = req.body;
 
   // TODO: prove that a name is in the list 
-  console.log(message)
+
   const isInTheList = verifyProof(proof, name, MERKLE_ROOT)// true, Norman Block is in the list!;
   
   if(isInTheList) {
-    res.send(`${name}, You got a toy robot!`);
+    res.send(`${name}, You got a toy robot! ${message}`);
   }
   else {
-    res.send(`${name}, You are not on the list :(`);
+    res.send(`${name}, You are not on the list :( ${message}`);
   }
 });
 

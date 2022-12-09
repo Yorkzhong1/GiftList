@@ -18,18 +18,29 @@ console.log(root)
 // find the proof that norman block is in the list 
 const index = niceList.findIndex(n => n === name);
 const proof = merkleTree.getProof(index);
-const message = "Hello from client side"
+const message1 = "Using await method"
+const message2 = "Using .then method"
 
 
 async function main() {
   // TODO: how do we prove to the server we're on the nice list? 
 
-  const { data: gift } = await axios.post(`${serverUrl1}/gift`, {name:name,proof:proof,message:message});
+  const { data: gift } = await axios.post(`${serverUrl1}/gift`, {name:name,proof:proof,message:message1});
     // TODO: add request body parameters here!
-  console.log({ gift});
+  console.log(gift);
+}
+
+ // change the await method to .then? 
+function test() {
+ 
+
+  axios.post(`${serverUrl1}/gift`, {name:name,proof:proof,message:message2}).then((result)=>{
+    let {status:st,data:gift}=result
+    console.log(st,gift)
+  })
+    // TODO: add request body parameters here!
 }
 
 
-
-
 main();
+test()
