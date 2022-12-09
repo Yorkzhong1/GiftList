@@ -1,5 +1,7 @@
 Key features:
-select random name from the list and send to server, server will verify whether its in the list and send back reponses.
+ - select random name from the list and send to server, server will verify whether its in the list and send back reponses.
+ - the server only has the Merkle tree of the total list (which is very small)
+ - the client need to send its name as well as Merkle proof to the server, and server verify whether the name is in the Merkle tree
 
 
 
