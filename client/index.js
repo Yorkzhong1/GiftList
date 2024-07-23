@@ -11,11 +11,10 @@ const serverUrl = 'http://localhost:1225';
 
 async function main() {
   // TODO: how do we prove to the server we're on the nice list? 
-const name = process.argv[2];
 
-//if needed, can takin names using args[2] as input for index
+//takes in external input as name
+  const name = process.argv[2];
 
-//console.log(args[2],args[3])
 
 // const name='lala'
 
