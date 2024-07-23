@@ -1,9 +1,10 @@
-Key features:
- - select random name from the list and send to server, server will verify whether its in the list and send back reponses.
- - the server only has the Merkle tree of the total list (which is very small)
- - the client need to send its name as well as Merkle proof to the server, and server verify whether the name is in the Merkle tree
+This is a simple client/server to verify whether a person is able to get the gift using MerkleTree to verify.
 
+run server first using node server/index
 
+then run client: node client/index.js name
+
+The server will verify whether the name is on the gift list or not.
 
 # Gift List
 

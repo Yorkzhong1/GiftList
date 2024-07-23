@@ -1,4 +1,3 @@
-
 const express = require('express');
 const verifyProof = require('../utils/verifyProof');
 
@@ -9,30 +8,25 @@ app.use(express.json());
 
 // TODO: hardcode a merkle root here representing the whole nice list
 // paste the hex string in here, without the 0x prefix
-const MERKLE_ROOT = 'ddd59a2ffccddd60ff47993312821cd57cf30f7f14fb82937ebe2c4dc78375aa';
+const MERKLE_ROOT = '';
 
 app.post('/gift', (req, res) => {
   // grab the parameters from the front-end here
-  const {name,proof,message} = req.body;
-
-  // TODO: prove that a name is in the list 
-
-  const isInTheList = verifyProof(proof, name, MERKLE_ROOT)// true, Norman Block is in the list!;
+  const body = req.body;
+  console.log(body.root)
   
+  // TODO: prove that a name is in the list 
+  const isInTheList = verifyProof(body.proof, body.name, body.root) ;
+  // const isInTheList=true
+  // console.log(body.root,body.name,body.proof)
   if(isInTheList) {
-    res.send(`${name}, You got a toy robot! ${message}`);
+    res.send("You got a toy robot!");
   }
   else {
-    res.send(`${name}, You are not on the list :( ${message}`);
+    res.send("You are not on the list :(");
   }
 });
-
-
-
-
-
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}!`);
 });
-
